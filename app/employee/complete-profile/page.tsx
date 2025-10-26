@@ -118,8 +118,10 @@ export default function CompleteProfilePage() {
       setError(null);
       setParserResponse("");
       const buffer = await resumeFile.arrayBuffer();
-      // @ts-ignore - pdfjs has no types here
-      const pdfjsLib: any = await import("pdfjs-dist/build/pdf");
+      // @ts-ignore - pdfjs has no bundled types here
+      const pdfjsLib: any = await import("pdfjs-dist/build/pdf.mjs");
+      // @ts-ignore - pdfjs has no bundled types here
+      const pdfjsLib: any = await import("pdfjs-dist/build/pdf.mjs");
       pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
       const loadingTask = pdfjsLib.getDocument({ data: buffer });
       const pdf = await loadingTask.promise;
